@@ -1,0 +1,343 @@
+/* Global reset and base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body, html, #root {
+  height: 100%;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #0f172a; /* Dark navy */
+  color: #eee;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  text-decoration: none;
+  color: #7dd3fc;
+}
+
+a:hover {
+  color: #38bdf8;
+}
+
+/* ======================
+   JOIN PAGE CONTAINER
+   ====================== */
+
+.join-container {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Background blobs */
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.3;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  mix-blend-mode: screen;
+  z-index: 0;
+}
+
+.blob1 {
+  width: 320px;
+  height: 320px;
+  background: #ff6a88;
+  top: 15%;
+  left: 8%;
+  animation-name: float1;
+  animation-duration: 12s;
+}
+
+.blob2 {
+  width: 450px;
+  height: 450px;
+  background: #ffbc42;
+  top: 50%;
+  right: 8%;
+  animation-name: float2;
+  animation-duration: 15s;
+}
+
+.blob3 {
+  width: 260px;
+  height: 260px;
+  background: #6a82fb;
+  bottom: 18%;
+  left: 25%;
+  animation-name: float3;
+  animation-duration: 9s;
+}
+
+.blob4 {
+  width: 380px;
+  height: 380px;
+  background: #fc5c7d;
+  bottom: 10%;
+  right: 28%;
+  animation-name: float4;
+  animation-duration: 13s;
+}
+
+/* Floating particles */
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: white;
+  opacity: 0.12;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  z-index: 0;
+}
+
+.particle1 {
+  width: 8px;
+  height: 8px;
+  top: 20%;
+  left: 62%;
+  animation-name: driftRight;
+  animation-duration: 23s;
+}
+
+.particle2 {
+  width: 6px;
+  height: 6px;
+  top: 38%;
+  left: 38%;
+  animation-name: driftLeft;
+  animation-duration: 27s;
+}
+
+.particle3 {
+  width: 7px;
+  height: 7px;
+  top: 72%;
+  left: 47%;
+  animation-name: driftRight;
+  animation-duration: 20s;
+}
+
+.particle4 {
+  width: 5px;
+  height: 5px;
+  top: 52%;
+  left: 78%;
+  animation-name: driftLeft;
+  animation-duration: 18s;
+}
+
+/* Pulsing waves */
+
+.wave {
+  position: absolute;
+  border: 3px solid white;
+  border-radius: 50%;
+  opacity: 0.08;
+  animation-name: pulse;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  z-index: 0;
+}
+
+.wave1 {
+  width: 360px;
+  height: 360px;
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+  animation-duration: 9s;
+}
+
+.wave2 {
+  width: 440px;
+  height: 440px;
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+  animation-duration: 11s;
+}
+
+.wave3 {
+  width: 500px;
+  height: 500px;
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+  animation-duration: 13s;
+}
+
+/* Keyframes */
+
+@keyframes float1 {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(25px, -28px); }
+}
+
+@keyframes float2 {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(-30px, 18px); }
+}
+
+@keyframes float3 {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(18px, 25px); }
+}
+
+@keyframes float4 {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(-25px, -18px); }
+}
+
+@keyframes driftRight {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(18px); }
+}
+
+@keyframes driftLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-18px); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.08; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(1.15); }
+}
+
+/* ======================
+   JOIN BOX FORM STYLES
+   ====================== */
+
+.join-box {
+  position: relative;
+  background: rgba(255 255 255 / 0.9);
+  border-radius: 25px;
+  padding: 50px 60px 60px 60px;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.15);
+  width: 420px;
+  max-width: 90vw;
+  z-index: 10;
+  color: #222;
+  text-align: center;
+  user-select: none;
+  font-weight: 600;
+  transition: box-shadow 0.3s ease;
+}
+
+.join-box:hover {
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.3);
+}
+
+.title {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  font-weight: 900;
+  letter-spacing: 1.2px;
+  user-select: none;
+  color: #2c3e50;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin-bottom: 40px;
+  color: #34495e;
+  user-select: none;
+  letter-spacing: 0.5px;
+}
+
+/* FLOATING LABEL INPUTS */
+.input-group {
+  position: relative;
+  margin-bottom: 32px;
+}
+
+.input-group input {
+  width: 100%;
+  border: none;
+  border-bottom: 3px solid #bbb;
+  background: transparent;
+  font-size: 18px;
+  padding: 16px 5px 10px 5px;
+  color: #2c3e50;
+  outline: none;
+  transition: border-color 0.3s ease;
+  font-weight: 600;
+}
+
+.input-group input:focus {
+  border-bottom-color: #4e54c8;
+}
+
+.input-group label {
+  position: absolute;
+  left: 5px;
+  bottom: 14px;
+  font-size: 16px;
+  color: #999;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  user-select: none;
+  font-weight: 600;
+}
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+  bottom: 48px;
+  font-size: 14px;
+  color: #4e54c8;
+}
+
+.input-group input::placeholder {
+  color: transparent;
+}
+
+/* JOIN BUTTON */
+.join-btn {
+  width: 100%;
+  padding: 20px 0;
+  background: #4e54c8;
+  border: none;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 22px;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgb(78 84 200 / 0.7);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+}
+
+.join-btn:hover {
+  background: #3b3f99;
+  box-shadow: 0 14px 40px rgb(59 63 153 / 0.8);
+}
+
+/* Footer */
+.footer {
+  position: fixed;
+  bottom: 16px;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: #7a8ca1;
+  user-select: none;
+  z-index: 20;
+}
